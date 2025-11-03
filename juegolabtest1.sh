@@ -24,7 +24,7 @@ moves=0
 
 # Laberinto (0=camino, 1=pared)
 preguntas(){
- case $((1 + RANDOM % 7)) in
+ case $((1 + RANDOM % 7)) in #agarra un numero del 1 al 7, en realidad es del 0 al 6 pero como le sumo +1 queda del 1 al 7
  1)
  	echo "¿Para qué sirven las ${GREEN}tuberías${NC} o ${GREEN}pipelines${NC}?"
 	echo "a) Conectar salidas de un comando con entradas del siguiente"
