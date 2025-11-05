@@ -185,8 +185,8 @@ maze=(
 	"1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
 )
 elif [ $nivel -eq 3 ]; then
-player_x=1
-        player_y=1
+	player_x=1
+	player_y=1
 maze=(
     "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 X 1"
     "1 0 0 0 1 0 0 0 3 0 0 0 0 0 1 0 0 0 0 1"
@@ -240,7 +240,7 @@ draw_maze() {
             elif [ "$cell" = "X" ]; then
                 output+="${YELLOW}X${NC} "
             else
-                output+="  "
+                output+=" "
             fi
             ((x++))
         done
@@ -281,7 +281,8 @@ move_player() {
         if [ "$cell" = "3" ]; then
             return 2
         fi
-        # Verificar si llegó a la meta
+        
+	# Verificar si llegó a la meta
         if [ "$cell" = "X" ]; then
             return 1
         fi
@@ -309,14 +310,13 @@ game_loop() {
         
         draw_maze
         
-	if [ $result -eq 2 ]; then
+		if [ $result -eq 2 ]; then
             echo -e "${RED}¡Haz impactado contra un virus!${NC}"
             echo ""
             read -p "Presiona ENTER para responder preguntas, tienes 1 sola oportunidad..."
-	clear_screen
-	preguntas
-	draw_maze
-		
+		clear_screen
+		preguntas
+		draw_maze
         fi
 
         if [ $result -eq 1 ]; then
