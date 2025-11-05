@@ -290,7 +290,6 @@ move_player() {
     return 0
 }
 
-# Función principal del juego
 game_loop() {
     draw_maze
     
