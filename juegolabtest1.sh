@@ -262,7 +262,7 @@ draw_maze() {
     echo -e "${CYAN}Movimientos: ${moves}${NC}"
     echo ""
     echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}Q${NC}=Salir"
-    echo -e "Objetivo: Llega a la ${YELLOW}X${NC}"
+    echo -e "Objetivo: Llegar a la ${YELLOW}X${NC}"
     echo ""
 }
 
