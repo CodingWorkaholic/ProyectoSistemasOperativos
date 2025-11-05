@@ -1,3 +1,24 @@
+
+# Iniciar el juego
+clear_screen
+echo "Bienvenido a ${CYAN}WinSurf${NC}"
+#sleep 3
+clear_screen
+echo "Tu computadora ha sido ${RED}hackeada${NC}"
+#sleep 3
+clear_screen
+echo "¡Pero todavía no está todo acabado!"
+#sleep 3
+clear_screen
+echo "Resuelve ejercicios y ve ${GREEN}recuperando${NC} tus datos"
+#sleep 3
+clear_screen
+echo "Estás listo? Presiona ${GREEN}ENTER${NC} para comenzar..."
+read -p ""
+
+tiponivel
+game_loop
+
 # Colores
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -338,23 +359,3 @@ game_loop() {
         fi
     done
 }
-
-# Iniciar el juego
-clear_screen
-echo "Bienvenido a ${CYAN}WinSurf${NC}"
-#sleep 3
-clear_screen
-echo "Tu computadora ha sido ${RED}hackeada${NC}"
-#sleep 3
-clear_screen
-echo "¡Pero todavía no está todo acabado!"
-#sleep 3
-clear_screen
-echo "Resuelve ejercicios y ve ${GREEN}recuperando${NC} tus datos"
-#sleep 3
-clear_screen
-echo "Estás listo? Presiona ${GREEN}enter${NC} para comenzar..."
-read -p ""
-
-tiponivel
-game_loop
