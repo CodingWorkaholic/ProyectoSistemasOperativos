@@ -152,6 +152,27 @@ preguntas(){
  esac
 }
 
+monitoreo_sistema() {
+    echo "Monitoreo de Usuarios Conectados y Recursos:"
+    who
+    echo "--------------------"
+    echo "Procesos actuales:"
+    ps -e --sort=-%mem | head -10
+    echo "--------------------"
+    echo "Uso de disco:"
+    df -h
+    echo "--------------------"
+    echo "Uso por directorio actual:"
+    du -sh .
+    echo "--------------------"
+    echo "Si deseas matar un proceso, ingresa el PID:"
+    read pid
+    if [[ $pid =~ ^[0-9]+$ ]]; then
+        kill "$pid"
+        echo "Proceso $pid terminado."
+    fi
+}
+
 tiponivel(){
 moves=0
 
@@ -256,7 +277,7 @@ draw_maze() {
     echo ""
     echo -e "${CYAN}Movimientos: ${moves}${NC}"
     echo ""
-    echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}Q${NC}=Salir"
+    echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}M${NC}=Monitoreo ${RED}Q${NC}=Salir"
     echo -e "Objetivo: Llega a la ${YELLOW}X${NC}"
     echo ""
 }
@@ -305,6 +326,10 @@ game_loop() {
     
     while true; do
         read -n1 -s key
+
+		if [ "$key" = "m" ] || [ "$key" = "M" ]; then
+            monitoreo_sistema
+        fi
         
         if [ "$key" = "q" ] || [ "$key" = "Q" ]; then
             clear_screen
