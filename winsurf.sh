@@ -321,7 +321,7 @@ game_loop() {
 	if [ $result -eq 2 ]; then
             echo -e "${RED}¡Haz impactado contra un virus!${NC}"
             echo ""
-            read -p "Presiona ENTER para responder preguntas, tienes 1 sola oportunidad..."
+            read -p "Presiona ${GREEN}ENTER${NC} para responder preguntas, tienes 1 sola oportunidad..."
 	clear_screen
 	preguntas
 	draw_maze
@@ -332,7 +332,7 @@ game_loop() {
             echo -e "${GREEN}¡¡¡FELICIDADES!!! ¡Has completado el nivel $nivel!${NC}"
             echo -e "Movimientos totales: ${YELLOW}${moves}${NC}"
             echo ""
-            read -p "Presiona ENTER para pasar al siguiente..."
+            read -p "Presiona ${GREEN}ENTER${NC} para pasar al siguiente..."
             ((nivel=nivel+1))
 		tiponivel
 		draw_maze
