@@ -278,7 +278,11 @@ move_player() {
         player_x=$new_x
         player_y=$new_y
         ((moves++))
-		echo "$moves" | tee -a moves.log | wc -l > total_lineas.log #captura los movimientos del jugador con 2 tuberías
+		
+		echo "$moves" | tee -a moves.log | wc -l > total_lineas.log # Captura los movimientos del jugador con 2 tuberías
+		echo "$key" | grep -E '^[wasdWASD]$' >> movimientos_validos.log # Detecta movimientos válidos (w/a/s/d)
+		echo "pos=($player_x,$player_y)" | grep -E '^\pos=\([0-9]+,[0-9]+\)$' >> coords.log # Detecta si el output del juego contiene coordenadas
+		echo "$moves" | grep -E '^[0-9]*[02468]$' >> pares.log # Detecta movimientos pares
         
 		# Verificar si toca un virus
         if [ "$cell" = "3" ]; then
