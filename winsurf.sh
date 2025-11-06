@@ -30,7 +30,7 @@ preguntas(){
 	echo "a) Conectar salidas de un comando con entradas del siguiente"
 	echo "b) Crear un script"
 	echo "c) Sobreescribir un archivo .txt"
-    	read -p "" respuesta
+    read -p "" respuesta
 
 	if [[ $respuesta = "a" || $respuesta = "A" ]]; then
 	echo "La respuesta es correcta, bien hecho!"
@@ -41,14 +41,13 @@ preguntas(){
 	clear_screen
 	exit 0
 	fi
-	
     ;;
   2)
-    	echo "¿Qué debe ir ${YELLOW}siempre${NC} al comenzar un script en ${GREEN}bash${NC}?"
+    echo "¿Qué debe ir ${YELLOW}siempre${NC} al comenzar un script en ${GREEN}bash${NC}?"
 	echo "a) bin-bash:"
 	echo "b) script.sh"
 	echo "c) #!/bin/bash"
-    	read -p "" respuesta
+    read -p "" respuesta
 
 	if [[ $respuesta = "c" || $respuesta = "C" ]]; then
 	echo "La respuesta es correcta, bien hecho!"
@@ -61,11 +60,11 @@ preguntas(){
 	fi
     ;;
   3)
-    	echo "¿Qué hace el comando base ${GREEN}wc${NC}?"
+    echo "¿Qué hace el comando base ${GREEN}wc${NC}?"
 	echo "a) Cambia, borra o comprime caracteres"
 	echo "b) Muestra las últimas líneas de un archivo"
 	echo "c) Cuenta la cantidad de líneas, palabras y carácteres que tiene un archivo"
-    	read -p "" respuesta
+    read -p "" respuesta
 
 	if [[ $respuesta = "c" || $respuesta = "C" ]]; then
 	echo "La respuesta es correcta, bien hecho!"
@@ -77,13 +76,12 @@ preguntas(){
 	exit 0
 	fi
     ;;
-
  4)
-    	echo "¿En los operadores de comparación ${GREEN}-ge${NC} es…?"
+    echo "¿En los operadores de comparación ${GREEN}-ge${NC} es…?"
 	echo "a) destino de"
 	echo "b) mayor que"
 	echo "c) mayor o igual que"
-    	read -p "" respuesta
+    read -p "" respuesta
 
 	if [[ $respuesta = "c" || $respuesta = "C" ]]; then
 	echo "La respuesta es correcta, bien hecho!"
@@ -95,13 +93,12 @@ preguntas(){
 	exit 0
 	fi
     ;;
-
  5)
-    	echo "¿El comando ${GREEN}for${NC} es un…?"
+    echo "¿El comando ${GREEN}for${NC} es un…?"
 	echo "a) contador"
 	echo "b) acumulador"
 	echo "c) condición"
-    	read -p "" respuesta
+    read -p "" respuesta
 
 	if [[ $respuesta = "b" || $respuesta = "B" ]]; then
 	echo "La respuesta es correcta, bien hecho!"
@@ -113,13 +110,12 @@ preguntas(){
 	exit 0
 	fi
     ;;
-
  6)
-    	echo "¿Qué es ${GREEN}||${NC}?"
+    echo "¿Qué es ${GREEN}||${NC}?"
 	echo "a) and"
 	echo "b) not"
 	echo "c) or"
-    	read -p "" respuesta
+    read -p "" respuesta
 
 	if [[ $respuesta = "c" || $respuesta = "C" ]]; then
 	echo "La respuesta es correcta, bien hecho!"
@@ -131,13 +127,12 @@ preguntas(){
 	exit 0
 	fi
     ;;
-
-7)
-    	echo "¿Qué es un ${GREEN}Sistema Operativo${NC}?"
+ 7)
+    echo "¿Qué es un ${GREEN}Sistema Operativo${NC}?"
 	echo "a) Un sistema operativo es un programa que actúa como intermediario entre el usuario y el hardware de la computadora"
 	echo "b) Un sistema operativo es un administrador de tareas, archivos que ayudan al Usuario"
 	echo "c) Es un conjunto de aplicaciones que ayudan en el manejo del hardware a la hora de hacer tareas: como navegar en internet, editar textos o mirar videos"
-    	read -p "" respuesta
+    read -p "" respuesta
 
 	if [[ $respuesta = "a" || $respuesta = "A" ]]; then
 	echo "La respuesta es correcta, bien hecho!"
@@ -148,36 +143,35 @@ preguntas(){
 	clear_screen
 	exit 0
 	fi
-    ;;
-    
+    ;;  
   *)
     echo "Opcion no valida"
     ;;
-esac
+ esac
 }
 
 tiponivel(){
 moves=0
 
 if [ $nivel -eq 1 ]; then
-player_x=1
-        player_y=1
+	player_x=1
+	player_y=1
 maze=(
-    "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 X 1"
-    "1 0 0 0 1 0 0 0 3 0 0 0 0 0 1 0 0 0 0 1"
-    "1 0 1 0 1 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1"
-    "1 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1"
-    "1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 1 0 1 0 1"
-    "1 3 0 0 0 0 0 0 1 0 0 0 1 0 3 0 0 1 0 1"
-    "1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 1"
-    "1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1"
-    "1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1"
-    "1 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 X"
-    "1 X 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
+"1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 X 1"
+"1 0 0 0 1 0 0 0 3 0 0 0 0 0 1 0 0 0 0 1"
+"1 0 1 0 1 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1"
+"1 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1"
+"1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 1 0 1 0 1"
+"1 3 0 0 0 0 0 0 1 0 0 0 1 0 3 0 0 1 0 1"
+"1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 1"
+"1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1"
+"1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1"
+"1 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 X"
+"1 X 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
 )
 elif [ $nivel -eq 2 ]; then
-player_x=1
-        player_y=1
+	player_x=1
+	player_y=1
 
 maze=(
 "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
@@ -192,25 +186,24 @@ maze=(
 "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
 )
 elif [ $nivel -eq 3 ]; then
-player_x=1
-        player_y=1
-maze=(
+	player_x=1
+    player_y=1
 
-    "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 X 1"
-    "1 0 0 0 1 0 0 0 3 0 0 0 0 0 1 0 0 0 0 1"
-    "1 0 1 0 1 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1"
-    "1 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1"
-    "1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 1 0 1 0 1"
-    "1 3 0 0 0 0 0 0 1 0 0 0 1 0 3 0 0 1 0 1"
-    "1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 1"
-    "1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1"
-    "1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1"
-    "1 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 X"
-    "1 X 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
+maze=(
+"1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 X 1"
+"1 0 0 0 1 0 0 0 3 0 0 0 0 0 1 0 0 0 0 1"
+"1 0 1 0 1 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1"
+"1 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1"
+"1 0 1 1 1 1 1 1 1 0 1 0 1 1 1 1 0 1 0 1"
+"1 3 0 0 0 0 0 0 1 0 0 0 1 0 3 0 0 1 0 1"
+"1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 1"
+"1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1"
+"1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1"
+"1 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 X"
+"1 X 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
 )
 fi
 }
-
 
 # Función para limpiar la pantalla
 clear_screen() {
@@ -244,7 +237,7 @@ draw_maze() {
                 output+="${GREEN}@${NC} "
             elif [ "$cell" = "1" ]; then
                 output+="${BLUE}█${NC} "
-	elif [ "$cell" = "3" ]; then
+			elif [ "$cell" = "3" ]; then
                 output+="${RED}#${NC} "
             elif [ "$cell" = "X" ]; then
                 output+="${YELLOW}X${NC} "
@@ -253,7 +246,7 @@ draw_maze() {
             fi
             ((x++))
         done
-        
+		
         echo -e "$output"
     done
     
@@ -286,7 +279,7 @@ move_player() {
         player_y=$new_y
         ((moves++))
         
-	# Verificar si toca un virus
+		# Verificar si toca un virus
         if [ "$cell" = "3" ]; then
             return 2
         fi
@@ -318,15 +311,14 @@ game_loop() {
         
         draw_maze
         
-	if [ $result -eq 2 ]; then
+		if [ $result -eq 2 ]; then
             echo -e "${RED}¡Haz impactado contra un virus!${NC}"
             echo ""
             echo "Presiona ${GREEN}ENTER${NC} para responder preguntas, tienes 1 sola oportunidad..."
-	    read -p ""
-	clear_screen
-	preguntas
-	draw_maze
-		
+	    	read -p ""
+			clear_screen
+			preguntas
+			draw_maze
         fi
 
         if [ $result -eq 1 ]; then
@@ -334,16 +326,15 @@ game_loop() {
             echo -e "Movimientos totales: ${YELLOW}${moves}${NC}"
             echo ""
             echo "Presiona ${GREEN}ENTER${NC} para pasar al siguiente..."
-	    read -p ""
+	    	read -p ""
             ((nivel=nivel+1))
-		tiponivel
-		draw_maze
+			tiponivel
+			draw_maze
         fi
     done
 }
 
 # Iniciar el juego
-
 clear_screen
 echo "Bienvenido a ${CYAN}WinSurf${NC}"
 sleep 3
@@ -362,4 +353,3 @@ read -p ""
 
 tiponivel
 game_loop
-
