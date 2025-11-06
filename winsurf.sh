@@ -278,6 +278,7 @@ move_player() {
         player_x=$new_x
         player_y=$new_y
         ((moves++))
+		echo "$moves" | tee -a moves.log | wc -l > total_lineas.log #captura los movimientos del jugador con 2 tuberías
         
 		# Verificar si toca un virus
         if [ "$cell" = "3" ]; then
