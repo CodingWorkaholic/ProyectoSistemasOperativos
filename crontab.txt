@@ -1,0 +1,2 @@
+#limpia logs cada semana
+0 0 * * 0 rm /home/usuario/*.log
