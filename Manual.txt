@@ -4,5 +4,11 @@ S= abajo
 A= izquierda
 D= derecha
 
+Teclas especiales C M Q:
+C= crontabs
+M= monitoreo de recursos
+Q= salir del programa
+
 Tienes que llegar a la "X" en cada nivel.
+
 Las "#" indican trampas, que si caes en ellas te harán responder preguntas.
