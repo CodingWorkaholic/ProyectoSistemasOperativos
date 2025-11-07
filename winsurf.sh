@@ -10,7 +10,7 @@ NC='\033[0m' # Sin color
 
 asd=1
 nivel=1
-nivel_siguiente=$nivel+1
+((nivel_siguiente=nivel+1))
 opcionPreg=0
 respuesta=""
 
@@ -267,6 +267,7 @@ pregunta_comandos() {
 	sleep 2
 	clear_screen
 	((nivel=nivel+1))
+	((nivel_siguiente=nivel+1))
 	tiponivel
 	draw_maze
 	else
@@ -274,7 +275,7 @@ pregunta_comandos() {
 	echo ""
 	echo "El comando correcto era:"
 	echo "${comandos[$comando_eleccion]}"
-	sleep 2
+	sleep 5
 	clear_screen
 	exit 0
     fi
