@@ -1,0 +1,2 @@
+En el proyecto tuvimos varios inconvenientes al adaptarlo a todos los comandos requeridos. Tuvimos que encontrar una forma de hacer que el movimiento lo pasaramos al grep y con tuberias.
+Ademas, los colores fallan en Git Bash
