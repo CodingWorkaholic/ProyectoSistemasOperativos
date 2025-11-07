@@ -427,7 +427,6 @@ draw_maze() {
     echo -e "${CYAN}║            Nivel $nivel - winSurf           ║${NC}"
     echo -e "${CYAN}╚════════════════════════════════════════╝${NC}"
     echo ""
-	fi
 	elif [ $nivel -eq 3 ]; then
  	echo -e "${CYAN}╔════════════════════════════════════════╗${NC}"
     echo -e "${CYAN}║      Nivel $nivel FINAL - winSurf           ║${NC}"
