@@ -152,6 +152,24 @@ preguntas(){
  esac
 }
 
+mostrar_cron() {
+    echo "Tareas programadas (crontab.txt):"
+    cat crontab.txt
+    echo "Puedes agregar tareas usando 'crontab crontab.txt'"
+
+	read -p "Quieres ver la lista de tareas programadas en todo tu sistema? (s/n)" opcioncron
+	if [ opcioncron = "s" || opcioncron = "S" ]; then
+	echo "Tareas programadas en tu sistema:"
+	crontab -l
+	else
+	echo "Ok"
+	fi
+	echo "Volviendo al juego..."
+	sleep 3
+	clear_screen
+	draw_maze
+}
+
 monitoreo_sistema() {
 	clear_screen
     echo "Monitoreo de Usuarios Conectados y Recursos:"
@@ -275,7 +293,7 @@ draw_maze() {
     echo ""
     echo -e "${CYAN}Movimientos: ${moves}${NC}"
     echo ""
-    echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}M${NC}=Monitoreo ${RED}Q${NC}=Salir"
+    echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}M${NC}=Monitoreo ${RED}M${NC}=Crons ${RED}Q${NC}=Salir"
     echo -e "Objetivo: Llega a la ${YELLOW}X${NC}"
     echo ""
 }
@@ -324,12 +342,17 @@ game_loop() {
     
     while true; do
         read -n1 -s key
-
+		
 		if [ "$key" = "m" ] || [ "$key" = "M" ]; then
 			clear_screen
             monitoreo_sistema
         fi
-        
+
+		if [ "$key" = "c" ] || [ "$key" = "C" ]; then
+			clear_screen
+            mostrar_cron
+        fi
+		
         if [ "$key" = "q" ] || [ "$key" = "Q" ]; then
             clear_screen
             echo -e "${RED}Te has rendido${NC}"
