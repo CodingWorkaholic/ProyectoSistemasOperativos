@@ -271,6 +271,9 @@ pregunta_comandos() {
 	draw_maze
 	else
 	echo "La respuesta es incorrecta. Hazlo mejor para la próxima!"
+	echo ""
+	echo "El comando correcto era:"
+	echo "${comandos[$comando_eleccion]}"
 	sleep 2
 	clear_screen
 	exit 0
