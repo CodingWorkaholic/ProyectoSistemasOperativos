@@ -158,7 +158,7 @@ mostrar_cron() {
     echo "Puedes agregar tareas usando 'crontab crontab.txt'"
 
 	read -p "Quieres ver la lista de tareas programadas en todo tu sistema? (s/n)" opcioncron
-	if [[ opcioncron = "s" || opcioncron = "S" ]]; then
+	if [[ $opcioncron = "s" || $opcioncron = "S" ]]; then
 	echo "Tareas programadas en tu sistema:"
 	crontab -l
 	else
