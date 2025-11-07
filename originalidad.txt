@@ -1,0 +1,1 @@
+	El proyecto está basado en un laberinto que encontramos en Reddit. Sólo contaba con el laberinto y con el movimiento básico del usuario (WASD). Pero todo el contenido fue modificado para adaptarlo al proyecto. Le agregamos preguntas, metas, teclas especiales con crons, monitoreos, etc. 
