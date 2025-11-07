@@ -1,6 +1,6 @@
 # Proyecto Final - Sistemas Operativos
 
-**Integrantes:**  
+**Proyecto realizado por:**  
 Alexander Bogorodskiy  
 Karlos Martinez  
 Salvador Medina  
