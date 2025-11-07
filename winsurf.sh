@@ -153,8 +153,10 @@ preguntas(){
 }
 
 mostrar_cron() {
-    echo "Tareas programadas (crontab.txt):"
+    echo "Tareas programadas (dentro del archivo crontab.txt):"
     cat crontab.txt
+	echo ""
+	echo ""
     echo "Puedes agregar tareas usando 'crontab crontab.txt'"
 
 	read -p "Quieres ver la lista de tareas programadas en todo tu sistema? (s/n)" opcioncron
