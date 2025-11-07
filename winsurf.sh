@@ -153,6 +153,7 @@ preguntas(){
 }
 
 monitoreo_sistema() {
+	clear_screen
     echo "Monitoreo de Usuarios Conectados y Recursos:"
     who
     echo "--------------------"
@@ -164,13 +165,10 @@ monitoreo_sistema() {
     echo "--------------------"
     echo "Uso por directorio actual:"
     du -sh .
-    echo "--------------------"
-    echo "Si deseas matar un proceso, ingresa el PID:"
-    read pid
-    if [[ $pid =~ ^[0-9]+$ ]]; then
-        kill "$pid"
-        echo "Proceso $pid terminado."
-    fi
+	echo "Presiona ${GREEN}ENTER${NC} para volver"
+	read -p ""
+	clear_screen
+	draw_maze
 }
 
 tiponivel(){
