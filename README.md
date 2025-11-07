@@ -37,7 +37,7 @@ Franco Pereira
 
 ## Comandos que aparecen en el juego (función `pregunta_comandos`)
 
-Los siguientes comandos de Linux son preguntados como desafíos en el juego:  
+Los siguientes comandos de Linux son preguntados como desafíos en el juego (tenlos en cuenta para avanzar dentro del juego :] ):  
 
 - `bash -x nombreScript.sh`
 - `cat archivo.txt`
