@@ -422,10 +422,18 @@ get_cell() {
 # Función para dibujar el laberinto
 draw_maze() {
     clear_screen
+	if [ $nivel -le 2 ]; then
     echo -e "${CYAN}╔════════════════════════════════════════╗${NC}"
     echo -e "${CYAN}║            Nivel $nivel - winSurf           ║${NC}"
     echo -e "${CYAN}╚════════════════════════════════════════╝${NC}"
     echo ""
+	fi
+	elif [ $nivel -eq 3 ]; then
+ 	echo -e "${CYAN}╔════════════════════════════════════════╗${NC}"
+    echo -e "${CYAN}║      Nivel $nivel FINAL - winSurf           ║${NC}"
+    echo -e "${CYAN}╚════════════════════════════════════════╝${NC}"
+    echo ""
+	fi
     
     for y in "${!maze[@]}"; do
         local row="${maze[$y]}"
