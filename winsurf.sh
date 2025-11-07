@@ -10,6 +10,7 @@ NC='\033[0m' # Sin color
 
 asd=1
 nivel=1
+nivel_siguiente=$nivel+1
 opcionPreg=0
 respuesta=""
 
@@ -151,6 +152,131 @@ preguntas(){
     ;;
  esac
 }
+
+pregunta_comandos() {
+    comandos=(
+        "ls"
+        "ls -a"
+        "ls -l"
+        "pwd"
+        "whoami"
+        "cat archivo.txt"
+        "cat > archivo.txt"
+        "cat >> archivo.txt"
+        "df -h"
+        "du -sh"
+        "echo Hola"
+        "touch nuevo.txt"
+        "chmod 600 archivo.txt"
+        "chmod u=rw,go=r archivo.txt"
+        "cp archivo.txt copia.txt"
+        "mv archivo.txt carpeta/"
+        "mkdir nueva_carpeta"
+        "mkdir -p 1/aa/e"
+        "free -h"
+        "find . -name '*.sh'"
+        "grep root /etc/passwd"
+        "grep -i usuario /etc/passwd"
+        "grep -v bash /etc/passwd"
+        "head archivo.txt"
+        "tail archivo.txt"
+        "tail -n 5 archivo.txt"
+        "tail -n+5 archivo.txt"
+        "date"
+        "nano ejemplo.txt"
+        "man ls"
+        "read nombre"
+        "read -s clave"
+        "read -n 4 codigo"
+        "sort archivo.txt"
+        "sort -k 2 archivo.txt"
+        "sort -n archivo.txt"
+        "sort -r archivo.txt"
+        "sort -u archivo.txt"
+        "sort -t , archivo.csv"
+        "stat archivo.txt"
+        "tree"
+        "tr 'a-z' 'A-Z' < archivo.txt"
+        "tr -d ' ' < archivo.txt"
+        "tr -s ' ' < archivo.txt"
+        "uniq archivo.txt"
+        "uptime"
+        "wc archivo.txt"
+        "wc -c archivo.txt"
+        "wc -l archivo.txt"
+        "wc -w archivo.txt"
+    )
+    descripciones=(
+        "Muestra todos los archivos del directorio actual"
+        "Muestra archivos, incluyendo ocultos, del directorio actual"
+        "Muestra archivos del directorio actual en formato largo"
+        "Muestra el directorio actual"
+        "Muestra el usuario actual"
+        "Muestra el contenido de archivo.txt"
+        "Crea archivo.txt con texto desde la terminal"
+        "Agrega texto al final de archivo.txt"
+        "Muestra el uso del disco en formato legible"
+        "Muestra el espacio utilizado por la carpeta actual"
+        "Muestra el mensaje Hola"
+        "Crea un archivo vacío llamado nuevo.txt"
+        "Asigna permisos 600 a archivo.txt"
+        "Permite solo rw a usuario, solo r a grupo y otros para archivo.txt"
+        "Copia archivo.txt en copia.txt"
+        "Mueve archivo.txt al directorio carpeta/"
+        "Crea una carpeta llamada nueva_carpeta"
+        "Crea directorios y subdirectorios 1/aa/e"
+        "Muestra memoria libre/ocupada en formato legible"
+        "Busca todos los archivos .sh en el directorio actual y sus subdirectorios"
+        "Busca la palabra root en /etc/passwd"
+        "Busca la palabra usuario (no distingue mayúsculas/minúsculas) en /etc/passwd"
+        "Muestra líneas de /etc/passwd que NO contengan la palabra bash"
+        "Muestra las primeras líneas de archivo.txt"
+        "Muestra las últimas líneas de archivo.txt"
+        "Muestra las últimas 5 líneas de archivo.txt"
+        "Muestra desde la línea 5 en adelante de archivo.txt"
+        "Muestra la fecha y hora actual"
+        "Edita el archivo ejemplo.txt con el editor nano"
+        "Muestra el manual de uso del comando ls"
+        "Lee una variable llamada nombre desde terminal"
+        "Lee una variable clave en forma oculta"
+        "Lee un código de 4 caracteres como máximo"
+        "Ordena las líneas de archivo.txt"
+        "Ordena archivo.txt por la segunda columna"
+        "Ordena archivo.txt numéricamente"
+        "Ordena archivo.txt en orden inverso"
+        "Ordena archivo.txt mostrando solo líneas únicas"
+        "Ordena archivo.csv separando por coma"
+        "Muestra información detallada de archivo.txt"
+        "Muestra el árbol de directorios"
+        "Convierte el contenido de archivo.txt a mayúsculas"
+        "Elimina los espacios de archivo.txt"
+        "Reemplaza espacios múltiples por uno solo en archivo.txt"
+        "Muestra solo líneas únicas de archivo.txt"
+        "Muestra cuánto tiempo lleva encendido el sistema"
+        "Muestra el número de líneas, palabras y caracteres en archivo.txt"
+        "Muestra el número de caracteres en archivo.txt"
+        "Muestra el número de líneas en archivo.txt"
+        "Muestra el número de palabras en archivo.txt"
+    )
+    comando_eleccion=$((RANDOM % ${#comandos[@]}))
+    echo "Haz completado el nivel $nivel! Responde correctamente para pasar al nivel $nivel_siguiente:"
+    echo "${descripciones[$comando_eleccion]}"
+    read -p "Comando: " respuesta
+    if [[ "$respuesta" == "${comandos[$comando_eleccion]}" ]]; then
+        echo "La respuesta es correcta, bien hecho!"
+	sleep 2
+	clear_screen
+	((nivel=nivel+1))
+	tiponivel
+	draw_maze
+	else
+	echo "La respuesta es incorrecta. Hazlo mejor para la próxima!"
+	sleep 2
+	clear_screen
+	exit 0
+    fi
+}
+
 
 mostrar_cron() {
     echo "Tareas programadas (dentro del archivo crontab.txt):"
@@ -381,14 +507,8 @@ game_loop() {
         fi
 
         if [ $result -eq 1 ]; then
-            echo -e "${GREEN}¡¡¡FELICIDADES!!! ¡Has completado el nivel $nivel!${NC}"
-            echo -e "Movimientos totales: ${YELLOW}${moves}${NC}"
-            echo ""
-            echo "Presiona ${GREEN}ENTER${NC} para pasar al siguiente..."
-	    	read -p ""
-            ((nivel=nivel+1))
-			tiponivel
-			draw_maze
+			clear_screen
+            pregunta_comandos
         fi
     done
 }
