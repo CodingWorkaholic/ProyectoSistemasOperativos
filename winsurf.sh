@@ -158,7 +158,7 @@ mostrar_cron() {
     echo "Puedes agregar tareas usando 'crontab crontab.txt'"
 
 	read -p "Quieres ver la lista de tareas programadas en todo tu sistema? (s/n)" opcioncron
-	if [ opcioncron = "s" || opcioncron = "S" ]; then
+	if [[ opcioncron = "s" || opcioncron = "S" ]]; then
 	echo "Tareas programadas en tu sistema:"
 	crontab -l
 	else
@@ -293,7 +293,7 @@ draw_maze() {
     echo ""
     echo -e "${CYAN}Movimientos: ${moves}${NC}"
     echo ""
-    echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}M${NC}=Monitoreo ${RED}M${NC}=Crons ${RED}Q${NC}=Salir"
+    echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}M${NC}=Monitoreo ${RED}C${NC}=Crons ${RED}Q${NC}=Salir"
     echo -e "Objetivo: Llega a la ${YELLOW}X${NC}"
     echo ""
 }
