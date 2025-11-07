@@ -357,7 +357,7 @@ if [ $nivel -eq 1 ]; then
 	player_x=1
 	player_y=1
 maze=(
-"1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 X 1"
+"1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1"
 "1 0 0 0 1 0 0 0 3 0 0 0 0 0 1 0 0 0 0 1"
 "1 0 1 0 1 0 1 1 1 1 1 1 1 0 1 0 1 1 0 1"
 "1 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1"
@@ -366,8 +366,8 @@ maze=(
 "1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 1 1 0 1"
 "1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 1"
 "1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 0 1 1 1 1"
-"1 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 X"
-"1 X 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
+"1 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 2"
+"1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
 )
 elif [ $nivel -eq 2 ]; then
 	player_x=1
@@ -380,7 +380,7 @@ maze=(
 "1 0 0 0 0 3 0 0 0 0 1 0 1 0 1"
 "1 0 1 1 1 1 1 1 1 0 1 0 3 0 1"
 "1 0 1 0 1 0 0 0 1 0 1 0 1 0 1"
-"1 0 1 0 1 0 1 0 1 0 1 0 1 0 X"
+"1 0 1 0 1 0 1 0 1 0 1 0 1 0 2"
 "1 0 1 0 1 0 1 3 1 0 1 0 1 0 1"
 "1 0 0 0 1 0 0 0 0 0 3 0 0 0 1"
 "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
@@ -390,7 +390,7 @@ elif [ $nivel -eq 3 ]; then
     player_y=1
 
 maze=(
-"1 1 1 1 1 1 1 1 1 1 X 1 1 1 1 1 1 1 X 1"
+"1 1 1 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 4 1"
 "1 0 0 3 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 1"
 "1 0 1 0 1 1 1 0 1 1 1 1 1 0 1 0 1 1 0 1"
 "1 0 1 0 0 1 0 3 0 0 1 0 0 0 0 0 0 1 0 1"
@@ -399,7 +399,7 @@ maze=(
 "1 1 1 1 0 1 1 0 1 1 1 1 1 0 1 1 1 1 0 1"
 "1 0 3 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 3 1"
 "1 0 1 1 0 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1"
-"1 0 1 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 X"
+"1 0 1 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 4"
 "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"
 )
 fi
@@ -439,8 +439,10 @@ draw_maze() {
                 output+="${BLUE}█${NC} "
 			elif [ "$cell" = "3" ]; then
                 output+="${RED}#${NC} "
-            elif [ "$cell" = "X" ]; then
+            elif [ "$cell" = "2" ]; then
                 output+="${YELLOW}X${NC} "
+			elif [ "$cell" = "4" ]; then
+                output+="${GREEN}X${NC} "
             else
                 output+="  "
             fi
@@ -489,8 +491,13 @@ move_player() {
             return 2
         fi
         # Verificar si llegó a la meta
-        if [ "$cell" = "X" ]; then
+        if [ "$cell" = "2" ]; then
             return 1
+        fi
+
+		# Verificar si llegó a la meta final
+        if [ "$cell" = "4" ]; then
+            return 3
         fi
     fi
     
@@ -539,6 +546,12 @@ game_loop() {
         if [ $result -eq 1 ]; then
 			clear_screen
             pregunta_comandos
+        fi
+
+		if [ $result -eq 3 ]; then
+			clear_screen
+            echo "Haz completado el juego! Muy bien hecho"
+			exit 0
         fi
     done
 }
