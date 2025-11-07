@@ -326,6 +326,7 @@ game_loop() {
         read -n1 -s key
 
 		if [ "$key" = "m" ] || [ "$key" = "M" ]; then
+			clear_screen
             monitoreo_sistema
         fi
         
