@@ -1,0 +1,8 @@
+Para moverte dentro del juego usa las teclas WASD:
+W= arriba
+S= abajo
+A= izquierda
+D= derecha
+
+Tienes que llegar a la "X" en cada nivel.
+Las "#" indican trampas, que si caes en ellas te harán responder preguntas.
