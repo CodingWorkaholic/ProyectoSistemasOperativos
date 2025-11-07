@@ -8,7 +8,7 @@ Franco Pereira
 
 ---
 
-## ¿Cómo correr el juego?
+## Cómo correr el juego?
 
 1. **Descarga** los archivos `winsurf.sh` y `crontab.txt`.
 2. **Colócalos** en la misma carpeta.
