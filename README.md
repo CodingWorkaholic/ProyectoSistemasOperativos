@@ -29,7 +29,7 @@ Franco Pereira
 
 ## Requerimientos
 
-- Tener acceso de terminal (bash).
+- Tener acceso a la terminal (bash).
 - Permisos para ejecutar scripts.
 - Los archivos necesarios en el mismo directorio.
 
