@@ -1,4 +1,3 @@
   En el proyecto tuvimos varios inconvenientes al adaptarlo a todos los comandos requeridos. Tuvimos que encontrar una forma de hacer que el movimiento funcionara con grep y con tuberias.
   Por otra parte, tuvimos problemas con que el juego, al caer en un virus, te pusiera una pregunta aleatoria. Habíamos probado con una serie de comandos del glosario, pero no funcionaba. Al final lo resolvimos hayando una variable interna que sirve para generar un numero aleatorio con cierto rango.
-  
-    Ademas, actualmente hay un problema con los colores de los caracteres. En la terminal de linux funciona sin problemas, pero en bash a veces funiona y a veces no.
+    Ademas, actualmente hay un problema con los colores de los caracteres. En la terminal de linux funciona sin problemas, pero en bash a veces funciona y a veces no.
