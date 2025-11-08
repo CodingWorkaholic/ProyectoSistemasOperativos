@@ -295,7 +295,6 @@ descripciones=(
 	clear_screen
 	((nivel=nivel+1))
 	((nivel_siguiente=nivel+1))
-	((total_moves=total_moves+moves))
 	tiponivel
 	draw_maze
 	else
@@ -464,6 +463,7 @@ draw_maze() {
     echo -e "Debes llegar a las X sin pasar por los virus(#) si es que no quieres preguntas extra"
     echo ""
     echo -e "${CYAN}Movimientos: ${moves}${NC}"
+	((total_moves=total_moves+moves))
     echo ""
     echo -e "Controles: ${GREEN}W${NC}=Arriba ${GREEN}S${NC}=Abajo ${GREEN}A${NC}=Izquierda ${GREEN}D${NC}=Derecha ${RED}M${NC}=Monitoreo ${RED}C${NC}=Crons ${RED}Q${NC}=Salir"
     echo -e "Objetivo: Llega a la ${YELLOW}X${NC}"
