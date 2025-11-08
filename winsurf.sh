@@ -500,6 +500,7 @@ move_player() {
         fi
         # Verificar si llegó a la meta
         if [ "$cell" = "2" ]; then
+			((total_moves=total_moves+moves))
             return 1
         fi
 
@@ -559,7 +560,6 @@ game_loop() {
         fi
 
         if [ $result -eq 1 ]; then
-			((total_moves=total_moves+moves))
 			clear_screen
             pregunta_comandos
 			
