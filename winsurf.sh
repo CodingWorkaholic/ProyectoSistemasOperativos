@@ -24,7 +24,7 @@ goal_y=9
 
 # Contador de movimientos
 moves=0
-((total_moves=total_moves+moves))
+total_moves=0
 
 # Laberinto (0=camino, 1=pared)
 preguntas(){
@@ -488,6 +488,7 @@ move_player() {
         player_x=$new_x
         player_y=$new_y
         ((moves++))
+		((total_moves++))
 		
 		echo "$moves" | tee -a moves.log | wc -l > total_lineas.log # Captura los movimientos del jugador con 2 tuberías
 		echo "$key" | grep -E '^[wasdWASD]$' >> movimientos_validos.log # Detecta movimientos válidos (w/a/s/d)
@@ -500,7 +501,6 @@ move_player() {
         fi
         # Verificar si llegó a la meta
         if [ "$cell" = "2" ]; then
-			((total_moves=total_moves+moves))
             return 1
         fi
 
