@@ -106,7 +106,7 @@ Los siguientes comandos de Linux son preguntados como desafíos en el juego (ten
 
 ## Descripción de niveles, objetivos y condiciones de victoria
 
-El juego cuenta con un número variado de niveles, los cuales tienen como objetivo llegar a la "X" (la meta de cada nivel). Una vez llegado a la meta, el juego te hará escribir un comando de linux basado en una descripción. Si el usuario responde bien pasará de nivel y si no, perderá. 
+El juego cuenta con 3 niveles, los cuales tienen como objetivo llegar a la "X" (la meta de cada nivel). Una vez llegado a la meta, el juego te hará escribir un comando de linux basado en una descripción. Si el usuario responde bien pasará de nivel y si no, perderá. Esto hasta llegar al tercer nivel, en el cual si llegas a la meta (en esta vez de color verde), el juego te dará las felicitaciones y te dirá la cantidad de movimientos hechos en total.
 En cada mapa habrán trampas "#", que tendrán preguntas extra. Si caes encima de ellas te mostrará una pregunta múltiple opción, en la cual si respondes bien podrás seguir y si respondes mal, perderás.
 En un determinado momento llegarás al último nivel (remarcado en el título del mismo nivel), que si el usuario lo consigue pasar, ganará.
 
