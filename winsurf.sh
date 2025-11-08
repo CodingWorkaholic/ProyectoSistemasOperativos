@@ -539,6 +539,7 @@ game_loop() {
 		if [ "$key" = "[" ]; then
 			nivel=3
             clear_screen
+			tiponivel
 			draw_maze
         fi
         
