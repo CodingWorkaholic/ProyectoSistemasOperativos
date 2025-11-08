@@ -295,6 +295,7 @@ descripciones=(
 	clear_screen
 	((nivel=nivel+1))
 	((nivel_siguiente=nivel+1))
+	((total_moves=total_moves+moves))
 	tiponivel
 	draw_maze
 	else
@@ -561,7 +562,7 @@ game_loop() {
         if [ $result -eq 1 ]; then
 			clear_screen
             pregunta_comandos
-			((total_moves=total_moves+moves))
+			
 			
         fi
 
