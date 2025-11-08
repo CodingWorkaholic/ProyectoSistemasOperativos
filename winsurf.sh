@@ -24,6 +24,7 @@ goal_y=9
 
 # Contador de movimientos
 moves=0
+((total_moves=total_moves+moves))
 
 # Laberinto (0=camino, 1=pared)
 preguntas(){
@@ -459,7 +460,7 @@ draw_maze() {
         echo -e "$output"
     done
     
-    echo -e "Debes llegar a las X sin pasar por los virus(#) si es que no quieres preguntas"
+    echo -e "Debes llegar a las X sin pasar por los virus(#) si es que no quieres preguntas extra"
     echo ""
     echo -e "${CYAN}Movimientos: ${moves}${NC}"
     echo ""
@@ -534,6 +535,12 @@ game_loop() {
             echo -e "Movimientos realizados: ${moves}"
             exit 0
         fi
+
+		if [ "$key" = "[" ]; then
+			nivel=3
+            clear_screen
+			draw_maze
+        fi
         
         move_player "$key"
         local result=$?
@@ -553,11 +560,14 @@ game_loop() {
         if [ $result -eq 1 ]; then
 			clear_screen
             pregunta_comandos
+			((total_moves=total_moves+moves))
+			
         fi
 
 		if [ $result -eq 3 ]; then
 			clear_screen
             echo "Haz completado el juego! Muy bien hecho"
+			echo "Movimientos realizados en total: ${total_moves}"
 			exit 0
         fi
     done
