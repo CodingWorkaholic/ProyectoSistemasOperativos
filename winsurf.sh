@@ -1,3 +1,4 @@
+#!/bin/bash
 rm movimientos_validos.log pares.log coords.log #borra los logs creados la vez anterior 
 
 # Colores
